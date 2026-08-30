@@ -1,0 +1,4016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MISAEL | Pirotecnia</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#ffd000;
+    color:#111;
+    overflow-x:hidden;
+    padding:18px;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    pointer-events:none;
+    border:18px solid transparent;
+    border-image:
+    repeating-linear-gradient(
+        135deg,
+        #ffd000 0 22px,
+        #111 22px 44px
+    ) 18;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    background:
+    radial-gradient(
+        circle at 50% 20%,
+        rgba(230,0,0,.22),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 10% 80%,
+        rgba(255,255,255,.25),
+        transparent 30%
+    ),
+    #ffd000;
+}
+
+.grid-bg{
+    position:fixed;
+    inset:0;
+    z-index:-9;
+    opacity:.15;
+
+    background-image:
+    linear-gradient(
+        rgba(0,0,0,.10) 1px,
+        transparent 1px
+    ),
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.10) 1px,
+        transparent 1px
+    );
+
+    background-size:45px 45px;
+
+    mask-image:
+    linear-gradient(
+        to bottom,
+        black,
+        transparent 80%
+    );
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:sticky;
+    top:18px;
+    z-index:1000;
+
+    max-width:1400px;
+    margin:auto;
+
+    min-height:78px;
+    padding:8px 28px;
+
+    background:#080808;
+
+    border:2px solid #111;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.25);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+}
+
+.logo-img{
+    width:150px;
+    height:58px;
+
+    object-fit:cover;
+
+    border-radius:6px;
+    border:1px solid #333;
+}
+
+.nav-menu{
+    display:flex;
+    gap:34px;
+    list-style:none;
+}
+
+.nav-menu a{
+    color:#aaa;
+    text-decoration:none;
+
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+.nav-menu a:hover{
+    color:#ffd000;
+}
+
+.cart-open{
+    border:0;
+
+    background:#e00000;
+
+    color:#fff;
+
+    padding:14px 20px;
+
+    cursor:pointer;
+
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+.cart-open:hover{
+    background:#ff2400;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    max-width:1400px;
+    margin:auto;
+
+    min-height:calc(100vh - 100px);
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    border-radius:50%;
+
+    background:#e00000;
+
+    filter:blur(180px);
+
+    opacity:.18;
+
+    animation:pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse{
+    from{
+        transform:scale(.8);
+        opacity:.10;
+    }
+
+    to{
+        transform:scale(1.15);
+        opacity:.24;
+    }
+}
+
+.hero::after{
+    content:"MISAEL  /  PIROTECNIA  /  CUETES";
+
+    position:absolute;
+
+    bottom:45px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:rgba(0,0,0,.35);
+
+    font-size:10px;
+    letter-spacing:7px;
+
+    white-space:nowrap;
+}
+
+.hero-center{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:1000px;
+
+    padding:70px 20px;
+}
+
+.hero-mini{
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:15px;
+
+    color:#e00000;
+
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:5px;
+
+    margin-bottom:35px;
+}
+
+.hero-mini::before,
+.hero-mini::after{
+    content:"";
+
+    width:55px;
+    height:3px;
+
+    background:#111;
+}
+
+/* =========================
+   LOGO GRANDE
+========================= */
+
+.hero-logo-container{
+    position:relative;
+
+    width:min(560px,90%);
+
+    margin:auto;
+
+    padding:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-logo-container::before{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    border:3px solid rgba(224,0,0,.20);
+
+    box-shadow:
+    0 0 0 30px rgba(0,0,0,.03),
+    0 0 0 70px rgba(224,0,0,.03);
+
+    animation:spin 25s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.hero-logo{
+    position:relative;
+    z-index:2;
+
+    width:min(450px,85vw);
+
+    max-height:260px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    border:3px solid #111;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+
+    animation:logoFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoFloat{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-10px);
+    }
+}
+
+.hero-title{
+    margin-top:20px;
+
+    font-size:clamp(45px,7vw,95px);
+
+    line-height:.85;
+
+    font-weight:1000;
+
+    letter-spacing:-5px;
+
+    text-transform:uppercase;
+
+    color:#111;
+}
+
+.hero-title span{
+    color:#e00000;
+}
+
+.hero-title strong{
+    color:#111;
+}
+
+.hero-description{
+    max-width:650px;
+
+    margin:28px auto 0;
+
+    color:#3d3d3d;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.hero-button{
+    padding:17px 30px;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+}
+
+.hero-button.red{
+    background:#e00000;
+    color:#fff;
+}
+
+.hero-button.red:hover{
+    background:#ff2400;
+    transform:translateY(-4px);
+}
+
+.hero-button.yellow{
+    border:2px solid #111;
+    color:#111;
+}
+
+.hero-button.yellow:hover{
+    background:#111;
+    color:#ffd000;
+    transform:translateY(-4px);
+}
+
+/* =========================
+   ADVERTENCIA
+========================= */
+
+.warning-strip{
+    max-width:1400px;
+    margin:auto;
+    padding:0 6%;
+}
+
+.warning-border{
+    padding:5px;
+
+    background:
+    repeating-linear-gradient(
+        135deg,
+        #ffd000 0 25px,
+        #111 25px 50px
+    );
+}
+
+.warning-content{
+    min-height:55px;
+
+    background:#080808;
+
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:15px;
+
+    padding:10px;
+
+    font-size:9px;
+    font-weight:1000;
+
+    letter-spacing:3px;
+
+    text-align:center;
+}
+
+.warning-content span{
+    color:#ffd000;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section{
+    max-width:1400px;
+    margin:auto;
+
+    padding:110px 6%;
+}
+
+.section-heading{
+    margin-bottom:45px;
+}
+
+.section-number{
+    color:#e00000;
+
+    font-size:10px;
+    font-weight:1000;
+
+    letter-spacing:4px;
+
+    margin-bottom:14px;
+}
+
+.section-heading h2{
+    font-size:clamp(45px,6vw,75px);
+
+    line-height:.85;
+
+    font-weight:1000;
+
+    letter-spacing:-3px;
+
+    text-transform:uppercase;
+
+    color:#111;
+}
+
+.section-heading h2 span{
+    color:#e00000;
+}
+
+.section-heading p{
+    max-width:600px;
+
+    color:#333;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    margin-top:20px;
+}
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.category-menu{
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+}
+
+.category-button{
+    background:#111;
+
+    color:#ffd000;
+
+    border:2px solid #111;
+
+    padding:13px 18px;
+
+    font-size:9px;
+
+    font-weight:1000;
+
+    letter-spacing:1.5px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    text-decoration:none;
+}
+
+.category-button:hover{
+    background:#e00000;
+
+    border-color:#e00000;
+
+    color:#fff;
+
+    transform:translateY(-3px);
+}
+
+.category-button.active{
+    background:#e00000;
+
+    border-color:#e00000;
+
+    color:#fff;
+}
+
+/* =========================
+   HERRAMIENTAS
+========================= */
+
+.catalog-tools{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+}
+
+.search-box{
+    flex:1;
+
+    min-width:250px;
+    max-width:600px;
+
+    padding:16px;
+
+    background:#111;
+
+    border:2px solid #111;
+
+    color:#fff;
+
+    outline:none;
+
+    font-size:12px;
+}
+
+.search-box::placeholder{
+    color:#aaa;
+}
+
+.search-box:focus{
+    border-color:#e00000;
+}
+
+.product-count{
+    color:#222;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+}
+
+.product-count strong{
+    color:#e00000;
+}
+
+/* =========================
+   CATEGORIA
+========================= */
+
+.category-section{
+    margin-bottom:75px;
+
+    scroll-margin-top:120px;
+}
+
+.category-title{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:22px;
+
+    padding-bottom:12px;
+
+    border-bottom:3px solid #111;
+}
+
+.category-title-number{
+    background:#e00000;
+
+    color:#fff;
+
+    padding:9px 11px;
+
+    font-size:9px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+}
+
+.category-title h3{
+    font-size:30px;
+
+    line-height:1;
+
+    font-weight:1000;
+
+    letter-spacing:-1px;
+
+    text-transform:uppercase;
+
+    color:#111;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:14px;
+}
+
+.product{
+    background:#0b0b0b;
+
+    border:2px solid #111;
+
+    transition:.3s;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 15px rgba(0,0,0,.12);
+}
+
+.product:hover{
+    border-color:#e00000;
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.25);
+}
+
+.product-image{
+    height:190px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(224,0,0,.35),
+        transparent 55%
+    ),
+    #171717;
+
+    overflow:hidden;
+}
+
+.product-image::before{
+    content:"";
+
+    width:150px;
+    height:150px;
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:2px solid
+    rgba(255,208,0,.18);
+}
+
+.product-image img{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.product-tag{
+    position:absolute;
+
+    top:12px;
+    left:12px;
+
+    background:#ffd000;
+
+    color:#080808;
+
+    padding:6px 9px;
+
+    font-size:8px;
+    font-weight:1000;
+
+    z-index:5;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-code{
+    color:#666;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    margin-bottom:7px;
+}
+
+.product-name{
+    font-size:18px;
+
+    font-weight:1000;
+
+    text-transform:uppercase;
+
+    margin-bottom:8px;
+
+    color:#fff;
+}
+
+.product-bottom{
+    margin-top:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:8px;
+}
+
+.product-price{
+    color:#ffd000;
+
+    font-size:20px;
+
+    font-weight:1000;
+
+    min-width:1px;
+}
+
+.product-actions{
+    display:flex;
+
+    gap:5px;
+}
+
+.product-button{
+    height:36px;
+
+    border:0;
+
+    padding:0 10px;
+
+    cursor:pointer;
+
+    font-size:9px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+.add-button{
+    background:#e00000;
+    color:#fff;
+}
+
+.add-button:hover{
+    background:#ff2400;
+}
+
+.video-button{
+    background:#191919;
+
+    color:#ffd000;
+
+    border:1px solid #444;
+}
+
+.video-button:hover{
+    border-color:#ffd000;
+}
+
+/* =========================
+   NOSOTROS
+========================= */
+
+.about{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+    align-items:center;
+}
+
+.about-title{
+    font-size:clamp(35px,5vw,60px);
+
+    line-height:.9;
+
+    font-weight:1000;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+    color:#111;
+}
+
+.about-title span{
+    color:#e00000;
+}
+
+.about-text{
+    color:#333;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.about-boxes{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+}
+
+.about-box{
+    background:#111;
+
+    border:2px solid #111;
+
+    padding:25px;
+
+    text-align:center;
+}
+
+.about-box strong{
+    display:block;
+
+    font-size:32px;
+
+    color:#ffd000;
+}
+
+.about-box span{
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#aaa;
+
+    font-weight:1000;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+.contact-card{
+    background:#111;
+
+    border:2px solid #111;
+
+    color:#fff;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.contact-icon{
+    font-size:24px;
+}
+
+.contact-card small{
+    color:#ffd000;
+
+    font-size:8px;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+}
+
+.contact-card h3{
+    font-size:16px;
+
+    margin-top:3px;
+}
+
+.contact-main-button{
+    display:inline-block;
+
+    background:#e00000;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:18px 35px;
+
+    font-weight:1000;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    margin-top:30px;
+
+    transition:.3s;
+}
+
+.contact-main-button:hover{
+    background:#111;
+
+    color:#ffd000;
+
+    transform:translateY(-3px);
+}
+
+.contact-button-area{
+    text-align:center;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    max-width:1400px;
+
+    margin:60px auto 0;
+
+    border-top:3px solid #111;
+
+    padding-top:40px;
+}
+
+.footer-main{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    margin-bottom:30px;
+}
+
+.footer-logo{
+    width:120px;
+
+    height:45px;
+
+    object-fit:cover;
+
+    border-radius:4px;
+
+    border:2px solid #111;
+}
+
+.footer-text{
+    color:#222;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    font-weight:bold;
+
+    margin-top:5px;
+}
+
+.footer-warning{
+    background:#111;
+
+    border:1px dashed #ffd000;
+
+    padding:15px;
+
+    text-align:center;
+
+    font-size:9px;
+
+    color:#ffd000;
+
+    letter-spacing:2px;
+
+    font-weight:bold;
+}
+
+/* =========================
+   CARRITO
+========================= */
+
+.cart-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.85);
+
+    z-index:999999;
+
+    display:none;
+
+    justify-content:flex-end;
+
+    backdrop-filter:blur(5px);
+}
+
+.cart-overlay.active{
+    display:flex;
+}
+
+.cart{
+    width:100%;
+
+    max-width:440px;
+
+    background:#0a0a0a;
+
+    border-left:3px solid #ffd000;
+
+    height:100%;
+
+    padding:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+}
+
+.cart-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:1px solid #333;
+
+    padding-bottom:15px;
+
+    color:#fff;
+}
+
+.cart-close{
+    background:none;
+
+    border:none;
+
+    color:#fff;
+
+    font-size:28px;
+
+    cursor:pointer;
+}
+
+.cart-list{
+    flex:1;
+
+    overflow-y:auto;
+
+    margin:20px 0;
+}
+
+.cart-empty{
+    color:#777;
+
+    font-size:12px;
+
+    text-align:center;
+
+    margin-top:40px;
+}
+
+.cart-item{
+    background:#151515;
+
+    padding:15px;
+
+    border:1px solid #333;
+
+    margin-bottom:10px;
+}
+
+.cart-item-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.cart-item-info strong{
+    display:block;
+
+    font-size:12px;
+
+    color:#fff;
+}
+
+.cart-item-info small{
+    color:#ffd000;
+
+    font-size:10px;
+}
+
+.cart-quantity{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:12px;
+}
+
+.quantity-button{
+    width:28px;
+
+    height:28px;
+
+    border:none;
+
+    background:#e00000;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.quantity-button:hover{
+    background:#ff2400;
+}
+
+.quantity-number{
+    min-width:30px;
+
+    text-align:center;
+
+    color:#fff;
+
+    font-weight:bold;
+}
+
+.cart-item-total{
+    color:#ffd000;
+
+    font-weight:bold;
+
+    font-size:12px;
+}
+
+.cart-remove{
+    background:#333;
+
+    color:#fff;
+
+    border:none;
+
+    padding:6px 9px;
+
+    font-size:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:10px;
+}
+
+.cart-remove:hover{
+    background:#e00000;
+}
+
+.cart-footer{
+    border-top:1px solid #333;
+
+    padding-top:20px;
+}
+
+.cart-total{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:16px;
+
+    font-weight:1000;
+
+    margin-bottom:15px;
+
+    color:#fff;
+}
+
+.cart-total span:last-child{
+    color:#ffd000;
+}
+
+.checkout{
+    width:100%;
+
+    background:#25d366;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.checkout:hover{
+    background:#1eb856;
+
+    transform:translateY(-2px);
+}
+
+.clear-cart{
+    width:100%;
+
+    background:#e00000;
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px;
+
+    font-weight:bold;
+
+    font-size:10px;
+
+    cursor:pointer;
+
+    margin-top:8px;
+}
+
+.clear-cart:hover{
+    background:#ff2400;
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:all .6s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1050px){
+
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:800px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .category-title h3{
+        font-size:24px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:18px 10px;
+    }
+
+    .navbar{
+        padding:8px 14px;
+    }
+
+    .logo-img{
+        width:115px;
+        height:50px;
+    }
+
+    .cart-open{
+        padding:11px 12px;
+    }
+
+    .hero{
+        min-height:calc(100vh - 110px);
+    }
+
+    .hero-center{
+        padding:50px 10px;
+    }
+
+    .hero-mini{
+        font-size:8px;
+
+        letter-spacing:3px;
+    }
+
+    .hero-mini::before,
+    .hero-mini::after{
+        width:25px;
+    }
+
+    .hero-logo{
+        width:80vw;
+
+        max-height:220px;
+    }
+
+    .hero-logo-container::before{
+        width:270px;
+
+        height:270px;
+    }
+
+    .hero-title{
+        font-size:47px;
+
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:12px;
+    }
+
+    .hero::after{
+        font-size:7px;
+
+        letter-spacing:3px;
+    }
+
+    .section{
+        padding:80px 5%;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .warning-content{
+        font-size:7px;
+
+        letter-spacing:1px;
+    }
+
+    .cart{
+        padding:25px 18px;
+    }
+
+    .category-menu{
+        gap:6px;
+    }
+
+    .category-button{
+        flex:1;
+
+        min-width:45%;
+
+        text-align:center;
+
+        padding:12px 8px;
+    }
+
+    .category-title{
+        gap:10px;
+    }
+
+    .category-title-number{
+        padding:8px;
+    }
+
+    .category-title h3{
+        font-size:20px;
+    }
+}
+
+.category-anchor{
+    scroll-margin-top:130px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid-bg"></div>
+
+<nav class="navbar">
+
+    <div class="brand">
+        <img
+        src="MISAEL.jpeg"
+        alt="MISAEL Pirotecnia"
+        class="logo-img">
+    </div>
+
+    <ul class="nav-menu">
+
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+
+    </ul>
+
+    <button class="cart-open" onclick="openCart()">
+        🛒 CARRITO
+        (<span id="cartCount">0</span>)
+    </button>
+
+</nav>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-center reveal">
+
+        <div class="hero-mini">
+            PIROTECNIA MISAEL
+        </div>
+
+        <div class="hero-logo-container">
+
+            <img
+            src="MISAEL.jpeg"
+            alt="MISAEL Pirotecnia"
+            class="hero-logo">
+
+        </div>
+
+        <h1 class="hero-title">
+
+            LA MEJOR
+
+            <span>
+                PIROTECNIA
+            </span>
+
+            <strong>
+                AL ALCANCE DE TUS MANOS
+            </strong>
+
+        </h1>
+
+        <p class="hero-description">
+
+            Haz que cada celebración tenga un momento
+            que nadie pueda olvidar. Descubre nuestra
+            colección de productos de pirotecnia.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+            href="#catalogo"
+            class="hero-button red">
+
+                EXPLORAR CATÁLOGO
+
+            </a>
+
+            <a
+            href="#contacto"
+            class="hero-button yellow">
+
+                CONTACTO
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="warning-strip">
+
+    <div class="warning-border">
+
+        <div class="warning-content">
+
+            ⚠
+
+            <span>
+                MISAEL PIROTECNIA
+            </span>
+
+            CUETES / PIROTECNIA / ESPECTÁCULO
+
+            <span>
+                ⚠
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<section class="section" id="catalogo">
+
+    <div class="section-heading reveal">
+
+        <div class="section-number">
+            01 / CATÁLOGO
+        </div>
+
+        <h2>
+            ENCUENTRA<br>
+            <span>TU PIROTECNIA.</span>
+        </h2>
+
+        <p>
+            Explora nuestros productos por categoría,
+            consulta sus videos y agrégalos a tu carrito.
+        </p>
+
+    </div>
+
+    <div class="category-menu">
+
+        <a href="#categoria-luz" class="category-button">
+            💡 LUZ
+        </a>
+
+        <a href="#categoria-color" class="category-button">
+            🎨 COLOR
+        </a>
+
+        <a href="#categoria-trueno" class="category-button">
+            💥 TRUENO FUERTE
+        </a>
+
+        <a href="#categoria-baterias" class="category-button">
+            🎆 BATERÍAS
+        </a>
+
+        <a href="#categoria-bombas" class="category-button">
+            💣 BOMBAS
+        </a>
+
+        <a href="#categoria-varas" class="category-button">
+            🚀 VARAS
+        </a>
+
+    </div>
+
+    <div class="catalog-tools">
+
+        <input
+        id="searchBox"
+        class="search-box"
+        type="text"
+        placeholder="🔎 Buscar producto..."
+        oninput="searchProducts()">
+
+        <div class="product-count">
+
+            PRODUCTOS:
+
+            <strong id="visibleCount">
+                126
+            </strong>
+
+        </div>
+
+    </div>
+
+    <div id="productCategories"></div>
+
+</section>
+
+<section class="section" id="nosotros">
+
+    <div class="about">
+
+        <div class="reveal">
+
+            <div class="section-number">
+                02 / NOSOTROS
+            </div>
+
+            <h2 class="about-title">
+
+                NACIDOS<br>
+                PARA LA
+                <span>PIROTECNIA.</span>
+
+            </h2>
+
+            <p class="about-text">
+
+                MISAEL nace con una idea sencilla:
+                convertir una celebración común en
+                un momento que nadie pueda olvidar.
+
+                Nuestra identidad mezcla la energía
+                de la pirotecnia con una imagen moderna,
+                fuerte y diferente.
+
+            </p>
+
+        </div>
+
+        <div class="about-boxes reveal">
+
+            <div class="about-box">
+                <strong>126+</strong>
+                <span>PRODUCTOS</span>
+            </div>
+
+            <div class="about-box">
+                <strong>01</strong>
+                <span>IDENTIDAD</span>
+            </div>
+
+            <div class="about-box">
+                <strong>∞</strong>
+                <span>CELEBRACIONES</span>
+            </div>
+
+            <div class="about-box">
+                <strong>🎆</strong>
+                <span>PIROTECNIA</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="contacto">
+
+    <div class="section-heading reveal">
+
+        <div class="section-number">
+            03 / CONTACTO
+        </div>
+
+        <h2>
+            HABLEMOS<br>
+            <span>DE PIROTECNIA.</span>
+        </h2>
+
+        <p>
+            ¿Tienes alguna pregunta o quieres conocer
+            nuestros productos? Estamos para atenderte.
+        </p>
+
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card reveal">
+
+            <div class="contact-icon">
+                📱
+            </div>
+
+            <div>
+                <small>WHATSAPP</small>
+                <h3>56 1070 9859</h3>
+            </div>
+
+        </div>
+
+        <div class="contact-card reveal">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <div>
+                <small>TELÉFONO</small>
+                <h3>56 1070 9859</h3>
+            </div>
+
+        </div>
+
+        <div class="contact-card reveal">
+
+            <div class="contact-icon">
+                📍
+            </div>
+
+            <div>
+                <small>UBICACIÓN</small>
+                <h3>Estado de México</h3>
+            </div>
+
+        </div>
+
+        <div class="contact-card reveal">
+
+            <div class="contact-icon">
+                📷
+            </div>
+
+            <div>
+                <small>INSTAGRAM</small>
+                <h3>@misaelpirotecnia</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="contact-button-area reveal">
+
+        <a
+        href="https://wa.me/525610709859?text=Hola%2C%20estoy%20interesado%20en%20uno%20de%20sus%20productos%20de%20pirotecnia.%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-main-button">
+
+            💬 CONTACTAR POR WHATSAPP
+
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-main">
+
+        <div>
+
+            <img
+            src="MISAEL.jpeg"
+            alt="MISAEL"
+            class="footer-logo">
+
+            <div class="footer-text">
+                PIROTECNIA / CUETES / ESPECTÁCULO
+            </div>
+
+        </div>
+
+        <div class="footer-text">
+            © 2026 MISAEL PIROTECNIA
+        </div>
+
+    </div>
+
+    <div class="footer-warning">
+
+        ⚠ UTILIZA LOS PRODUCTOS DE PIROTECNIA
+        DE MANERA RESPONSABLE Y DE ACUERDO
+        CON LA NORMATIVA LOCAL ⚠
+
+    </div>
+
+</footer>
+
+<!-- CARRITO -->
+
+<div class="cart-overlay" id="cartOverlay">
+
+    <div class="cart">
+
+        <div class="cart-header">
+
+            <h2>
+                🛒 CARRITO
+            </h2>
+
+            <button
+            class="cart-close"
+            onclick="closeCart()">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <div
+        class="cart-list"
+        id="cartList">
+
+            <div class="cart-empty">
+                Tu carrito está vacío.
+            </div>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <span id="cartTotal">
+                    $0
+                </span>
+
+            </div>
+
+            <button
+            class="checkout"
+            onclick="checkout()">
+
+                💬 MANDAR PEDIDO POR WHATSAPP
+
+            </button>
+
+            <button
+            class="clear-cart"
+            onclick="clearCart()">
+
+                VACIAR CARRITO
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================================================
+   PRODUCTOS
+========================================================= */
+
+const products=[
+
+{
+name:"Cometa El Mosquito",
+price:70,
+category:"luz",
+tag:"TOP",
+image:"cometamosquito.jpeg",
+video:""
+},
+
+{
+name:"Abejitas",
+price:65,
+category:"luz",
+tag:"NUEVO",
+image:"abeja65.jpeg",
+video:""
+},
+
+{
+name:"Abejorrin",
+price:70,
+category:"luz",
+tag:"POPULAR",
+image:"abejorrin70.jpeg",
+video:""
+},
+
+{
+name:"Abejorro",
+price:90,
+category:"luz",
+tag:"PREMIUM",
+image:"abejorro90.jpeg",
+video:""
+},
+
+{
+name:"Bob o Labubus",
+price:40,
+category:"color",
+tag:"",
+image:"boblabubu40.jpeg",
+video:""
+},
+
+{
+name:"Bola De Humo",
+price:80,
+category:"luz",
+tag:"PREMIUM",
+image:"boladehumo80.jpeg",
+video:""
+},
+
+{
+name:"Buscapie",
+price:70,
+category:"luz",
+tag:"",
+image:"buscapie70.jpeg",
+video:""
+},
+
+{
+name:"Camelias",
+price:12,
+category:"luz",
+tag:"",
+image:"camelia12.jpeg",
+video:""
+},
+,{
+name:"Oumuamua",
+price:12,
+category:"bateria",
+tag:"",
+image:"oumuamua.jpeg",
+video:"https://www.youtube.com/watch?v=V05_dtUoSc4"
+},{
+name:"Ovni Azul",
+price:12,
+category:"baterias",
+tag:"",
+image:"ovniazul.jpeg",
+video:"https://www.youtube.com/shorts/VNQnrDczTn8"
+},{
+name:"Ovni plata",
+price:12,
+category:"baterias",
+tag:"",
+image:"ovniplata.jpeg",
+video:"https://www.youtube.com/shorts/O_rSOiBc5Yg"
+},{
+name:"ovnirojo",
+price:12,
+category:"baterias",
+tag:"",
+image:"ovnirojo.jpeg",
+video:"https://www.youtube.com/shorts/iB3CLxtBpBU"
+},{
+name:"Pulsar",
+price:12,
+category:"baterias",
+tag:"",
+image:"pulsar.jpeg",
+video:"https://www.youtube.com/watch?v=avepmjCErCo"
+},{
+name:"quark",
+price:12,
+category:"baterias",
+tag:"",
+image:"quark.jpeg",
+video:"https://www.youtube.com/watch?v=e1_qv5BVWZU"
+},{
+name:"Saturno",
+price:12,
+category:"baterias",
+tag:"",
+image:"saturno.jpeg",
+video:"https://www.youtube.com/watch?v=TH9B613B82c"
+},{
+name:"Serpo Planet",
+price:12,
+category:"baterias",
+tag:"",
+image:"serpoplanet.jpeg",
+video:"https://www.youtube.com/watch?v=SXL6mReWxWY"
+},{
+name:"Shadow",
+price:12,
+category:"baterias",
+tag:"",
+image:"shadow.jpeg",
+video:"https://www.youtube.com/watch?v=IMrRU4bh53M"
+},{
+name:"Sky Watcher",
+price:12,
+category:"baterias",
+tag:"",
+image:"skywatcher.jpeg",
+video:"https://www.youtube.com/watch?v=4vS4M9dCnCE"
+},{
+name:"Star light",
+price:12,
+category:"baterias",
+tag:"",
+image:"starlight.jpeg",
+video:"https://www.youtube.com/watch?v=jqfdjm1bfjA"
+},{
+name:"Universo",
+price:12,
+category:"baterias",
+tag:"",
+image:"universo.jpeg",
+video:"https://www.youtube.com/watch?v=Rb6VnXMg_QQ"
+},{
+name:"Vampiro",
+price:12,
+category:"baterias",
+tag:"",
+image:"vampiro.jpeg",
+video:"https://www.youtube.com/watch?v=EBCjrKt48-I"
+},{
+name:"voyager",
+price:12,
+category:"baterias",
+tag:"",
+image:"voyager.jpeg",
+video:"https://www.youtube.com/shorts/ey3WERIe54E"
+},{
+name:"zeta",
+price:12,
+category:"baterias",
+tag:"",
+image:"zeta.jpeg",
+video:"https://www.youtube.com/watch?v=YRZs85AFMjI"
+},{
+name:"zodiaco",
+price:12,
+category:"baterias",
+tag:"",
+image:"zodiaco.jpeg",
+video:"https://www.youtube.com/watch?v=gHrf58I0HhA"
+},{
+name:"acmif",
+price:12,
+category:"bateria",
+tag:"",
+image:"acmif.jpeg",
+video:"https://www.youtube.com/watch?v=JS1qGg_ezmw"
+},{
+name:"annunaki",
+price:12,
+category:"bateria",
+tag:"",
+image:"annunaki.jpeg",
+video:""
+},{
+name:"Corazon universal",
+price:12,
+category:"bateria",
+tag:"",
+image:"corazonuniversal.jpeg",
+video:"https://www.youtube.com/watch?v=RuwItO7hbg4"
+},{
+name:"enjambreespacial",
+price:12,
+category:"bateria",
+tag:"",
+image:"enjambreespacial.jpeg",
+video:"https://www.youtube.com/watch?v=wPPwx9-xiFM"
+},{
+name:"Fuente de plasma",
+price:12,
+category:"bateria",
+tag:"",
+image:"fuentedeplasma.jpeg",
+video:"https://www.youtube.com/watch?v=b8o4WFGHFyw"
+},{
+name:"Gaia",
+price:12,
+category:"bateria",
+tag:"",
+image:"gaia.jpeg",
+video:"https://www.youtube.com/watch?v=U5Eo2a_E9nI"
+},{
+name:"hibrido",
+price:12,
+category:"bateria",
+tag:"",
+image:"hibrido.jpeg",
+video:"https://www.youtube.com/watch?v=yTQVJaA3wlc"
+},{
+name:"hyperion",
+price:12,
+category:"bateria",
+tag:"",
+image:"hyperion.jpeg",
+video:"https://www.youtube.com/shorts/KSC1xTBI0So"
+},{
+name:"luna llena",
+price:12,
+category:"baterias",
+tag:"",
+image:"lunallena.jpeg",
+video:"https://www.youtube.com/watch?v=Y8LMSqoIsNo"
+},{
+name:"lluvia de meteoros",
+price:12,
+category:"baterias",
+tag:"",
+image:"lluviademeteoros.jpeg",
+video:"https://www.youtube.com/watch?v=oxXhPwyPlKE"
+},{
+name:"lluvia solar",
+price:12,
+category:"baterias",
+tag:"",
+image:"lluviasolar.jpeg",
+video:"https://www.youtube.com/watch?v=fTx69E4yZGo"
+},{
+name:"Orbe de luz",
+price:12,
+category:"baterias",
+tag:"",
+image:"orbedeluz.jpeg",
+video:"https://www.youtube.com/watch?v=4fjVs8xr-UM"
+},{
+name:"osa mayor",
+price:12,
+category:"baterias",
+tag:"",
+image:"osamayor.jpeg",
+video:"https://www.youtube.com/watch?v=fh39I3AK4sI"
+},{
+name:"Pandora",
+price:12,
+category:"baterias",
+tag:"",
+image:"pandora.jpeg",
+video:"https://www.youtube.com/shorts/qXETKWlibH0"
+},{
+name:"pleyades",
+price:12,
+category:"baterias",
+tag:"",
+image:"pleyades.jpeg",
+video:"https://www.youtube.com/watch?v=4Lh21Fs6HlA"
+},{
+name:"Rayos Gamma",
+price:12,
+category:"baterias",
+tag:"",
+image:"rayosgama.jpeg",
+video:"https://www.youtube.com/watch?v=BDxkJBOVy78"
+},{
+name:"Reptiliano",
+price:12,
+category:"baterias",
+tag:"",
+image:"reptiliano.jpeg",
+video:"https://www.youtube.com/watch?v=moMM8gIAKT0"
+},{
+name:"Tormenta admosferica",
+price:12,
+category:"baterias",
+tag:"",
+image:"tormenta admosferica.jpeg",
+video:"https://www.youtube.com/watch?v=KtXGd2K4RLM"
+},{
+name:"Triton",
+price:12,
+category:"bateria",
+tag:"",
+image:"triton.jpeg",
+video:"https://www.youtube.com/shorts/uowRvUlQQ-I"
+},
+{
+name:"Camelia Con Cracker",
+price:15,
+category:"luz",
+tag:"TOP",
+image:"cameliacracker15.jpeg",
+video:""
+},
+
+{
+name:"Cañon",
+price:110,
+category:"trueno",
+tag:"",
+image:"cañon110.jpeg",
+video:""
+},
+
+{
+name:"Cañon Bebe",
+price:90,
+category:"trueno",
+tag:"PREMIUM",
+image:"cañonbebe90.jpeg",
+video:""
+},
+
+{
+name:"Cara De Diablo",
+price:150,
+category:"trueno",
+tag:"",
+image:"caradiablo150.jpeg",
+video:""
+},
+
+{
+name:"Carrillera",
+price:220,
+category:"trueno",
+tag:"",
+image:"carrillera220.jpeg",
+video:""
+},
+
+{
+name:"Cerveza",
+price:40,
+category:"luz",
+tag:"NUEVO",
+image:"cervesa40.jpeg",
+video:""
+},
+
+{
+name:"Charros",
+price:40,
+category:"color",
+tag:"",
+image:"charros40.jpeg",
+video:""
+},
+
+{
+name:"Cometon",
+price:55,
+category:"luz",
+tag:"TOP",
+image:"cometon55.jpeg",
+video:""
+},
+
+{
+name:"Cuete Blanco",
+price:80,
+category:"trueno",
+tag:"",
+image:"cueteblanco80.jpeg",
+video:""
+},
+
+{
+name:"EspantaSuegras",
+price:40,
+category:"color",
+tag:"",
+image:"espantasuegras40.jpeg",
+video:""
+},
+
+{
+name:"Huevo de Codorniz",
+price:120,
+category:"trueno",
+tag:"POPULAR",
+image:"huevocodorniz120.jpeg",
+video:""
+},
+
+{
+name:"Eben",
+price:850,
+category:"baterias",
+tag:"PREMIUM",
+image:"ebem.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mGSrCpKjORY0txBvgM-tqeV"
+},
+
+{
+name:"Maruchans",
+price:40,
+category:"luz",
+tag:"",
+image:"maruchan40.jpeg",
+video:""
+},
+
+{
+name:"Ecuador",
+price:610,
+category:"baterias",
+tag:"",
+image:"ecuador.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mGSrCpKjORY0txBvgM-tqeV"
+},
+
+{
+name:"Mazapan",
+price:45,
+category:"color",
+tag:"",
+image:"mazapan45.jpeg",
+video:""
+},
+
+{
+name:"Mega Paloma de Luz",
+price:100,
+category:"luz",
+tag:"TOP",
+image:"megapalomaluz100.jpeg",
+video:""
+},
+
+{
+name:"Mini Hulk",
+price:65,
+category:"trueno",
+tag:"",
+image:"minihulk65.jpeg",
+video:""
+},
+
+{
+name:"Olla Mediana",
+price:40,
+category:"luz",
+tag:"",
+image:"ollamediana40.jpeg",
+video:""
+},
+
+{
+name:"Patos",
+price:40,
+category:"luz",
+tag:"",
+image:"patos40.jpeg",
+video:""
+},
+
+{
+name:"pitbum",
+price:350,
+category:"trueno",
+tag:"POPULAR",
+image:"pitbum350.jpeg",
+video:""
+},
+
+{
+name:"Ecuador 2",
+price:590,
+category:"baterias",
+tag:"",
+image:"ecuadorplata.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mGSrCpKjORY0txBvgM-tqeV"
+},
+
+{
+name:"Pulgas",
+price:40,
+category:"color",
+tag:"",
+image:"pulgas40.jpeg",
+video:""
+},
+
+{
+name:"R-15",
+price:50,
+category:"trueno",
+tag:"NUEVO",
+image:"r1550.jpeg",
+video:""
+},
+
+{
+name:"Espacial",
+price:710,
+category:"baterias",
+tag:"PREMIUM",
+image:"espacial.jpeg",
+video:"https://www.youtube.com/watch?v=WVVxspLr8JI"
+},
+
+{
+name:"Ratoncito",
+price:60,
+category:"luz",
+tag:"",
+image:"raton60.jpeg",
+video:""
+},
+
+{
+name:"Silbato",
+price:45,
+category:"luz",
+tag:"",
+image:"silbato45.jpeg",
+video:""
+},
+
+{
+name:"Europa",
+price:9,
+category:"baterias",
+tag:"PREMIUM",
+image:"europa.jpeg",
+video:"https://www.youtube.com/watch?v=q_pKSPSwvUw"
+},
+
+{
+name:"Silbato Urba",
+price:300,
+category:"luz",
+tag:"",
+image:"silbatoUrba300.jpeg",
+video:""
+},
+
+{
+name:"Trabuco",
+price:50,
+category:"luz",
+tag:"TOP",
+image:"trabuco50.jpeg",
+video:""
+},
+
+{
+name:"Trabuco Charola",
+price:55,
+category:"luz",
+tag:"",
+image:"trabucocharola55.jpeg",
+video:""
+},
+
+{
+name:"Trabuco Jumbo",
+price:80,
+category:"luz",
+tag:"PREMIUM",
+image:"trabucojumbo80.jpeg",
+video:""
+},
+
+{
+name:"Unicornio",
+price:40,
+category:"color",
+tag:"",
+image:"unicornio40.jpeg",
+video:""
+},
+
+{
+name:"Vara Cobre",
+price:280,
+category:"luz",
+tag:"",
+image:"varaCobre280.jpeg",
+video:""
+},
+
+{
+name:"Explosion de luz",
+price:890,
+category:"baterias",
+tag:"PREMIUM",
+image:"explosiondeluz.jpeg",
+video:"https://www.youtube.com/watch?v=ujUwt8iQ9rc"
+},
+
+{
+name:"Volcan De Diamantina",
+price:85,
+category:"color",
+tag:"",
+image:"volcanDiamantina85.jpeg",
+video:""
+},
+
+{
+name:"Hulk Grande",
+price:100,
+category:"trueno",
+tag:"",
+image:"hulkgrande100.jpeg",
+video:""
+},
+
+{
+name:"Mega Hulk",
+price:250,
+category:"trueno",
+tag:"TOP",
+image:"megaHulk250.jpeg",
+video:""
+},
+
+{
+name:"Grito",
+price:350,
+category:"trueno",
+tag:"",
+image:"grito350.jpeg",
+video:""
+},
+
+{
+name:"relampago",
+price:150,
+category:"trueno",
+tag:"",
+image:"relampago150.jpeg",
+video:""
+},
+
+{
+name:"Super Paloma",
+price:100,
+category:"trueno",
+tag:"NUEVO",
+image:"superpaloma100.jpeg",
+video:""
+},
+
+{
+name:"Foton",
+price:950,
+category:"baterias",
+tag:"EXCLUSIVO",
+image:"foton.jpeg",
+video:"https://www.youtube.com/shorts/DQLCI8uCjT4"
+},
+
+{
+name:"Cara de Diablo",
+price:150,
+category:"trueno",
+tag:"EXCLUSIVO",
+image:"caradediablo150.jpeg",
+video:""
+},
+
+/* =========================
+   BATERÍAS
+========================= */
+
+{
+name:"Solid Light",
+price:0,
+category:"baterias",
+tag:"NUEVO",
+image:"solid.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mEPUn_iFw7yCia-Tnh5YFXm"
+},
+
+{
+name:"helix",
+price:0,
+category:"baterias",
+tag:"",
+image:"helix.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mHVxWWxamjqJw8nZy8regMa"
+},
+
+{
+name:"skynoon",
+price:0,
+category:"baterias",
+tag:"POPULAR",
+image:"skynoon.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mE4COVpkkamiR3wJr8IFcVj"
+},
+
+{
+name:"vialactea",
+price:0,
+category:"baterias",
+tag:"",
+image:"vialactea.jpeg",
+video:"https://www.youtube.com/watch?v=B_mrbUpSSnQ"
+},
+
+{
+name:"icognito",
+price:0,
+category:"baterias",
+tag:"PREMIUM",
+image:"icognito.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mG4TmAhtMHkEDTjmZktQJ_m"
+},
+
+{
+name:"smokereveal",
+price:0,
+category:"baterias",
+tag:"",
+image:"smokereveal.jpeg",
+video:"https://www.youtube.com/shorts/wrwBrdxNUJI"
+},
+
+{
+name:"Chispero Plata 3M",
+price:730,
+category:"baterias",
+tag:"TOP",
+image:"chisperoplata3m.jpeg",
+video:"https://www.youtube.com/watch?v=tTnVfbefSkE"
+},
+
+{
+name:"Chispero Plata 5M",
+price:760,
+category:"baterias",
+tag:"",
+image:"chisperoplata5m.jpeg",
+video:"https://www.youtube.com/watch?v=WEI_XqrA1f0"
+},
+
+{
+name:"Chispero 6M",
+price:790,
+category:"baterias",
+tag:"",
+image:"chisperoo.png",
+video:"https://www.youtube.com/watch?v=3Tuq7j4K_w0"
+},
+
+{
+name:"Pro Rocket 12",
+price:820,
+category:"baterias",
+tag:"PREMIUM",
+image:"prorocket.jpeg",
+video:"https://www.youtube.com/watch?v=0E9dMukZ0xI"
+},
+
+{
+name:"Pro Rocket 22",
+price:850,
+category:"baterias",
+tag:"",
+image:"prorocket22.jpeg",
+video:"https://www.youtube.com/watch?v=4ULqmQXxPAM"
+},
+
+{
+name:"ADN",
+price:880,
+category:"baterias",
+tag:"NUEVO",
+image:"adn.jpeg",
+video:"https://www.facebook.com/doncueteoficial/videos/868093382071077"
+},
+
+{
+name:"Alpha Dracos",
+price:910,
+category:"baterias",
+tag:"",
+image:"alphadrakos.jpeg",
+video:"https://www.youtube.com/shorts/tA41q-m3SFw"
+},
+
+{
+name:"Anfibios",
+price:940,
+category:"baterias",
+tag:"TOP",
+image:"anfibio.jpeg",
+video:"https://www.youtube.com/shorts/pxZnj4IB_EA?feature=shared"
+},
+
+{
+name:"Angel Dorados",
+price:970,
+category:"baterias",
+tag:"",
+image:"angeldorado.jpeg",
+video:"https://www.youtube.com/watch?v=RzsLY-FXQ9o"
+},
+
+{
+name:"Apollo",
+price:1000,
+category:"baterias",
+tag:"PREMIUM",
+image:"apollo.jpeg",
+video:"https://www.youtube.com/watch?v=E7VDxaPak-M"
+},
+
+{
+name:"Asteroide",
+price:530,
+category:"baterias",
+tag:"",
+image:"asteroide.jpeg",
+video:"https://www.youtube.com/shorts/d2VHZGkRe5I"
+},
+
+{
+name:"Astro",
+price:560,
+category:"baterias",
+tag:"",
+image:"astro.jpeg",
+video:"https://www.youtube.com/watch?v=1ONciG3_4wE"
+},
+
+{
+name:"Astronauta",
+price:590,
+category:"baterias",
+tag:"POPULAR",
+image:"astronauta.jpeg",
+video:"https://www.youtube.com/watch?v=hXvSiFXA-m0"
+},
+
+{
+name:"Atlas",
+price:620,
+category:"baterias",
+tag:"",
+image:"atlas.jpeg",
+video:"https://www.youtube.com/shorts/VCeJMMqaV9E"
+},
+
+{
+name:"Boyy or Girl",
+price:650,
+category:"baterias",
+tag:"NUEVO",
+image:"boyorgirl.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mEg-CdDd_LFc8K5PdUVK4jx"
+},
+
+{
+name:"Caballero Negro",
+price:680,
+category:"baterias",
+tag:"",
+image:"caballeronegro.jpeg",
+video:"https://www.youtube.com/watch?v=0jkriHvaX1A"
+},
+
+{
+name:"Calipso",
+price:710,
+category:"baterias",
+tag:"TOP",
+image:"calipso.jpeg",
+video:"https://www.youtube.com/watch?v=apMLTWsDUjU"
+},
+
+{
+name:"Calisto",
+price:740,
+category:"baterias",
+tag:"",
+image:"calisto.jpeg",
+video:"https://www.youtube.com/shorts/Fy2EhdRV8XI"
+},
+
+{
+name:"Ceres",
+price:770,
+category:"baterias",
+tag:"PREMIUM",
+image:"ceres.jpeg",
+video:"https://www.youtube.com/watch?v=NpFvvFxoTLE"
+},
+
+{
+name:"Cosmico",
+price:800,
+category:"baterias",
+tag:"",
+image:"Cosmico.jpeg",
+video:"https://www.youtube.com/watch?v=7xB39iFXeMM"
+},
+
+{
+name:"Dracos Cracker",
+price:830,
+category:"baterias",
+tag:"",
+image:"dracoscracker.jpeg",
+video:"https://www.youtube.com/watch?v=ejXxPnm8DNM.jpeg"
+},
+
+{
+name:"Dracos Estrobo",
+price:860,
+category:"baterias",
+tag:"NUEVO",
+image:"dracosestrobo.jpeg",
+video:"https://www.youtube.com/watch?v=hNcdiC-2mvs"
+},
+
+{
+name:"Duende",
+price:890,
+category:"baterias",
+tag:"TOP",
+image:"duende.jpeg",
+video:"https://www.youtube.com/watch?v=AocwFGmcrSw"
+},
+
+{
+name:"Cuete Mediano",
+price:150,
+category:"trueno",
+tag:"",
+image:"cuetemediano150.jpeg",
+video:""
+},
+
+{
+name:"cometon",
+price:50,
+category:"luz",
+tag:"PREMIUM",
+image:"cometon50.jpeg",
+video:""
+},
+
+{
+name:"Pajarera",
+price:70,
+category:"luz",
+tag:"",
+image:"pajarera70.jpeg",
+video:""
+},
+
+{
+name:"Escupidor",
+price:40,
+category:"luz",
+tag:"NUEVO",
+image:"escupidor40.jpeg",
+video:""
+},
+
+{
+name:"Minion",
+price:60,
+category:"color",
+tag:"",
+image:"minion60.jpeg",
+video:""
+},
+
+{
+name:"Olaf",
+price:70,
+category:"color",
+tag:"TOP",
+image:"olaf70.jpeg",
+video:""
+},
+
+{
+name:"flash",
+price:130,
+category:"color",
+tag:"PREMIUM",
+image:"flash130.jpeg",
+video:""
+},
+
+{
+name:"Silbato loco",
+price:70,
+category:"luz",
+tag:"",
+image:"silbatoloco70.jpeg",
+video:""
+},
+
+{
+name:"Gotita",
+price:50,
+category:"luz",
+tag:"",
+image:"gotita50.jpeg",
+video:""
+},
+
+{
+name:"Trompito",
+price:40,
+category:"luz",
+tag:"POPULAR",
+image:"trompito40.jpeg",
+video:""
+},
+
+{
+name:"Caramelo",
+price:50,
+category:"color",
+tag:"",
+image:"caramelo50.jpeg",
+video:""
+},
+
+{
+name:"Jumping",
+price:40,
+category:"luz",
+tag:"NUEVO",
+image:"jumping40.jpeg",
+video:""
+},
+
+{
+name:"Caramelo Grande",
+price:50,
+category:"luz",
+tag:"",
+image:"caramelo50.jpeg",
+video:""
+},
+
+{
+name:"Rosa",
+price:100,
+category:"luz",
+tag:"TOP",
+image:"rosa100.jpeg",
+video:""
+},
+
+{
+name:"Rosa con Cracker",
+price:110,
+category:"luz",
+tag:"",
+image:"rosacracker110.jpeg",
+video:""
+},
+
+{
+name:"Gargolas",
+price:70,
+category:"color",
+tag:"PREMIUM",
+image:"gargolas70.jpeg",
+video:""
+},
+
+{
+name:"Silbatin",
+price:50,
+category:"luz",
+tag:"",
+image:"silbatin50.jpeg",
+video:""
+},
+
+{
+name:"Mina de Cracker",
+price:40,
+category:"luz",
+tag:"",
+image:"minadecracker40.jpeg",
+video:""
+},
+
+{
+name:"Abejita China",
+price:30,
+category:"luz",
+tag:"NUEVO",
+image:"abejitachina30.jpeg",
+video:""
+},
+
+{
+name:"Hormiguero",
+price:100,
+category:"color",
+tag:"TOP",
+image:"hormiguero100.jpeg",
+video:""
+},
+
+{
+name:"Urba",
+price:70,
+category:"luz",
+tag:"",
+image:"varaurba70.jpeg",
+video:""
+},
+
+{
+name:"Cracker Boom",
+price:130,
+category:"color",
+tag:"PREMIUM",
+image:"crackerboom130.jpeg",
+video:""
+},
+
+{
+name:"El Avispon",
+price:80,
+category:"luz",
+tag:"",
+image:"elavispon80.jpeg",
+video:""
+},
+
+{
+name:"Dragon Ball",
+price:40,
+category:"luz",
+tag:"NUEVO",
+image:"dragonball40.jpeg",
+video:""
+},
+
+{
+name:"Escupidor Bob",
+price:60,
+category:"color",
+tag:"",
+image:"escupidorbob60.jpeg",
+video:""
+},
+
+{
+name:"Acuarelas",
+price:35,
+category:"luz",
+tag:"TOP",
+image:"acuarelas35.jpeg",
+video:""
+},
+
+{
+name:"Buscapie",
+price:70,
+category:"luz",
+tag:"PREMIUM",
+image:"buscapie70.jpeg",
+video:""
+},
+
+{
+name:"Pajarera luminosa",
+price:100,
+category:"luz",
+tag:"",
+image:"pajareraluminosa100.jpeg",
+video:""
+},
+
+{
+name:"Carrillera de 50 metros",
+price:4000,
+category:"baterias",
+tag:"",
+image:"carrillerade50metros4000.jpeg",
+video:""
+},
+
+{
+name:"Bazzoka",
+price:990,
+category:"trueno",
+tag:"POPULAR",
+image:"bazzoka990.jpeg",
+video:""
+},
+
+{
+name:"Mega Medusa",
+price:550,
+category:"trueno",
+tag:"",
+image:"megamedusa550.jpeg",
+video:""
+},
+
+{
+name:"kake",
+price:450,
+category:"baterias",
+tag:"NUEVO",
+image:"kake450.jpeg",
+video:""
+},
+
+{
+name:"Misil",
+price:250,
+category:"luz",
+tag:"",
+image:"misil250.jpeg",
+video:""
+},
+
+{
+name:"Mini Medusa",
+price:80,
+category:"trueno",
+tag:"TOP",
+image:"minimedusa80.jpeg",
+video:""
+},
+
+{
+name:"Misilito",
+price:150,
+category:"baterias",
+tag:"",
+image:"misilito.jpeg",
+video:""
+},
+
+{
+name:"Carnavalito",
+price:100,
+category:"baterias",
+tag:"PREMIUM",
+image:"carnavalito100.jpeg",
+video:""
+},
+
+{
+name:"Bomba 6 pulgadas",
+price:380,
+category:"trueno",
+tag:"",
+image:"bomba6pulgadas380.jpeg",
+video:""
+},
+
+{
+name:"Bomba 8 pulgadas",
+price:480,
+category:"trueno",
+tag:"",
+image:"bomba8pulgadas480.jpeg",
+video:""
+},
+
+{
+name:"Rifas",
+price:150,
+category:"baterias",
+tag:"NUEVO",
+image:"rifa150.jpeg",
+video:""
+},
+
+{
+name:"Galaxia",
+price:2100,
+category:"baterias",
+tag:"TOP",
+image:"galaxia.jpeg",
+video:"https://www.youtube.com/watch?v=LOOyJj_GMQo"
+},
+
+{
+name:"Gamer",
+price:2130,
+category:"baterias",
+tag:"",
+image:"gamer.jpeg",
+video:"https://www.youtube.com/watch?v=CCQJU5icx9g"
+},
+
+{
+name:"HD NEON",
+price:2160,
+category:"baterias",
+tag:"PREMIUM",
+image:"hdneonoroplata.jpeg",
+video:"https://www.youtube.com/playlist?list=PLkExavxpY1mHuJgeYnV7dGdNwzTDXRl0i"
+},
+
+{
+name:"Hormiga",
+price:2190,
+category:"baterias",
+tag:"",
+image:"hormiga.jpeg",
+video:"https://www.youtube.com/watch?v=fbT6KNYvRrk"
+},
+
+{
+name:"Killer",
+price:2220,
+category:"baterias",
+tag:"NUEVO",
+image:"killer.jpeg",
+video:"https://www.youtube.com/watch?v=6u6cYPDmVJs"
+},
+
+{
+name:"Mantis",
+price:2250,
+category:"baterias",
+tag:"",
+image:"mantis.jpeg",
+video:"https://www.youtube.com/watch?v=e4e-x4-C4Jk"
+},
+
+{
+name:"Marciano",
+price:2280,
+category:"baterias",
+tag:"TOP",
+image:"marciano.jpeg",
+video:"https://www.youtube.com/shorts/Vc9k611QEb8"
+},
+
+{
+name:"Marte",
+price:2310,
+category:"baterias",
+tag:"EXCLUSIVO",
+image:"marte.jpeg",
+video:"https://www.youtube.com/shorts/qkRFKd9sZuc"
+}
+
+];
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
+const categories=[
+
+{
+id:"luz",
+name:"LUZ",
+icon:"💡"
+},
+
+{
+id:"color",
+name:"COLOR",
+icon:"🎨"
+},
+
+{
+id:"trueno",
+name:"TRUENO FUERTE",
+icon:"💥"
+},
+
+{
+id:"baterias",
+name:"BATERÍAS",
+icon:"🎆"
+},
+
+{
+id:"bombas",
+name:"BOMBAS",
+icon:"💣"
+},
+
+{
+id:"varas",
+name:"VARAS",
+icon:"🚀"
+}
+
+];
+
+let cart=[];
+
+/* =========================
+   CREAR PRODUCTO
+========================= */
+
+function createProductCard(product){
+
+    const card=document.createElement("article");
+
+    card.className="product";
+
+    const productNumber=
+    products.indexOf(product)+1;
+
+    /*
+       EL BOTÓN VER SOLO APARECE
+       EN LAS BATERÍAS QUE TENGAN VIDEO.
+
+       AL TOCARLO ABRE DIRECTAMENTE
+       YOUTUBE EN UNA NUEVA PESTAÑA.
+    */
+
+    const videoButton=
+    product.category==="baterias" && product.video
+    ?
+    `
+    <button
+    class="product-button video-button"
+    onclick="window.open('${product.video}','_blank')">
+
+        VER
+
+    </button>
+    `
+    :
+    "";
+
+    /*
+       LAS BATERÍAS NO MUESTRAN PRECIO.
+       LOS DEMÁS PRODUCTOS SÍ.
+    */
+
+    const priceHTML=
+    product.category==="baterias"
+    ?
+    ""
+    :
+    `
+    <div class="product-price">
+        $${Number(product.price).toLocaleString()}
+    </div>
+    `;
+
+    card.innerHTML=`
+
+        <div class="product-image">
+
+            ${
+                product.tag
+                ?
+                `<div class="product-tag">
+                    ${product.tag}
+                </div>`
+                :
+                ""
+            }
+
+            <img
+            src="${product.image}"
+            alt="${product.name}"
+            onerror="this.style.display='none'">
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-code">
+
+                MSL /
+                ${String(productNumber).padStart(3,"0")}
+
+            </div>
+
+            <div class="product-name">
+
+                ${product.name}
+
+            </div>
+
+            <div class="product-bottom">
+
+                ${priceHTML}
+
+                <div class="product-actions">
+
+                    ${videoButton}
+
+                    <button
+                    class="product-button add-button"
+                    onclick="addToCart('${product.name}',${Number(product.price)})">
+
+                        AGREGAR
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+    return card;
+}
+
+/* =========================
+   MOSTRAR PRODUCTOS
+========================= */
+
+function renderProducts(list=products){
+
+    const container=
+    document.getElementById("productCategories");
+
+    const count=
+    document.getElementById("visibleCount");
+
+    container.innerHTML="";
+
+    count.textContent=list.length;
+
+    categories.forEach((category,categoryIndex)=>{
+
+        const categoryProducts=
+        list.filter(
+            product=>
+            product.category===category.id
+        );
+
+        if(categoryProducts.length===0){
+            return;
+        }
+
+        const section=
+        document.createElement("div");
+
+        section.className="category-section";
+
+        section.id=
+        "categoria-"+category.id;
+
+        section.innerHTML=`
+
+            <div class="category-title">
+
+                <div class="category-title-number">
+
+                    ${String(categoryIndex+1).padStart(2,"0")}
+
+                </div>
+
+                <h3>
+
+                    ${category.icon}
+                    ${category.name}
+
+                </h3>
+
+            </div>
+
+            <div class="product-grid"></div>
+
+        `;
+
+        const grid=
+        section.querySelector(".product-grid");
+
+        categoryProducts.forEach(product=>{
+
+            grid.appendChild(
+                createProductCard(product)
+            );
+
+        });
+
+        container.appendChild(section);
+
+    });
+
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+
+function searchProducts(){
+
+    const query=
+    document
+    .getElementById("searchBox")
+    .value
+    .toLowerCase()
+    .trim();
+
+    const filtered=
+    products.filter(product=>
+
+        product.name
+        .toLowerCase()
+        .includes(query)
+
+        ||
+
+        product.category
+        .toLowerCase()
+        .includes(query)
+
+    );
+
+    renderProducts(filtered);
+}
+
+/* =========================
+   CARRITO
+========================= */
+
+function addToCart(name,price){
+
+    const existing=
+    cart.find(
+        item=>item.name===name
+    );
+
+    if(existing){
+
+        existing.quantity++;
+
+    }else{
+
+        cart.push({
+
+            name:name,
+
+            price:Number(price),
+
+            quantity:1
+
+        });
+
+    }
+
+    updateCart();
+
+    openCart();
+}
+
+function changeQuantity(index,change){
+
+    if(!cart[index]){
+        return;
+    }
+
+    cart[index].quantity+=change;
+
+    if(cart[index].quantity<=0){
+
+        cart.splice(index,1);
+
+    }
+
+    updateCart();
+}
+
+function updateCart(){
+
+    const list=
+    document.getElementById("cartList");
+
+    const count=
+    document.getElementById("cartCount");
+
+    const totalElement=
+    document.getElementById("cartTotal");
+
+    list.innerHTML="";
+
+    let total=0;
+
+    let quantity=0;
+
+    if(cart.length===0){
+
+        list.innerHTML=`
+
+            <div class="cart-empty">
+
+                Tu carrito está vacío.
+
+            </div>
+
+        `;
+
+    }
+
+    cart.forEach((item,index)=>{
+
+        const itemTotal=
+        item.price*
+        item.quantity;
+
+        total+=itemTotal;
+
+        quantity+=item.quantity;
+
+        const element=
+        document.createElement("div");
+
+        element.className="cart-item";
+
+        element.innerHTML=`
+
+            <div class="cart-item-top">
+
+                <div class="cart-item-info">
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <small>
+                        $${item.price.toLocaleString()} por pieza
+                    </small>
+
+                </div>
+
+                <div class="cart-item-total">
+
+                    $${itemTotal.toLocaleString()}
+
+                </div>
+
+            </div>
+
+            <div class="cart-quantity">
+
+                <button
+                class="quantity-button"
+                onclick="changeQuantity(${index},-1)">
+
+                    −
+
+                </button>
+
+                <div class="quantity-number">
+
+                    ${item.quantity}
+
+                </div>
+
+                <button
+                class="quantity-button"
+                onclick="changeQuantity(${index},1)">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <button
+            class="cart-remove"
+            onclick="removeFromCart(${index})">
+
+                ELIMINAR PRODUCTO
+
+            </button>
+
+        `;
+
+        list.appendChild(element);
+
+    });
+
+    count.textContent=quantity;
+
+    totalElement.textContent=
+    "$"+total.toLocaleString();
+}
+
+function removeFromCart(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+}
+
+function clearCart(){
+
+    if(cart.length===0){
+        return;
+    }
+
+    if(
+        confirm(
+            "¿Quieres vaciar todo el carrito?"
+        )
+    ){
+
+        cart=[];
+
+        updateCart();
+
+    }
+}
+
+function openCart(){
+
+    document
+    .getElementById("cartOverlay")
+    .classList
+    .add("active");
+}
+
+function closeCart(){
+
+    document
+    .getElementById("cartOverlay")
+    .classList
+    .remove("active");
+}
+
+document
+.getElementById("cartOverlay")
+.addEventListener("click",function(event){
+
+    if(event.target===this){
+
+        closeCart();
+
+    }
+
+});
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function checkout(){
+
+    if(cart.length===0){
+
+        alert(
+            "Tu carrito está vacío."
+        );
+
+        return;
+    }
+
+    let message=
+    "🎆 *PEDIDO MISAEL PIROTECNIA* 🎆\n\n";
+
+    cart.forEach(item=>{
+
+        message+=
+        "🎇 "+
+        item.name+
+        " x"+
+        item.quantity+
+        " — $"+
+        (
+            item.price*
+            item.quantity
+        ).toLocaleString()+
+        "\n";
+
+    });
+
+    const total=
+    cart.reduce(
+        (sum,item)=>
+        sum+
+        item.price*
+        item.quantity,
+        0
+    );
+
+    message+=
+    "\n💰 *TOTAL: $"+
+    total.toLocaleString()+
+    "*";
+
+    const phone=
+    "5610709859";
+
+    const url=
+    "https://wa.me/"+
+    phone+
+    "?text="+
+    encodeURIComponent(message);
+
+    window.open(
+        url,
+        "_blank"
+    );
+}
+
+/* =========================
+   TECLADO
+========================= */
+
+document.addEventListener(
+"keydown",
+event=>{
+
+    if(event.key==="Escape"){
+
+        closeCart();
+
+    }
+
+});
+
+/* =========================
+   ANIMACIONES
+========================= */
+ 
+const observer=
+new IntersectionObserver(
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(
+            entry.isIntersecting
+        ){
+
+            entry
+            .target
+            .classList
+            .add("show");
+
+        }
+
+    });
+
+},
+{
+    threshold:.1
+});
+
+document
+.querySelectorAll(".reveal")
+.forEach(
+    element=>
+    observer.observe(element)
+);
+
+/* =========================
+   INICIAR
+========================= */
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
